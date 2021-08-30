@@ -1,21 +1,9 @@
-import {
-  TestBed
-} from '@angular/core/testing';
-
-import {
-  SkyAppTestModule
-} from '@skyux-sdk/builder/runtime/testing/browser';
-
-import {
-  expect
-} from '@skyux-sdk/testing';
-
-import {
-  ItemsComponent
-} from './items.component';
+import { TestBed } from '@angular/core/testing';
+import { SkyAppTestModule } from '@skyux-sdk/builder/runtime/testing/browser';
+import { expect } from '@skyux-sdk/testing';
+import { ItemsComponent } from './items.component';
 
 describe('Items component', () => {
-
   /**
    * This configureTestingModule function imports SkyAppTestModule, which brings in all of
    * the SKY UX modules and components in your application for testing convenience. If this has
@@ -35,5 +23,4 @@ describe('Items component', () => {
 
     expect(true).toBe(false);
   });
-
 });

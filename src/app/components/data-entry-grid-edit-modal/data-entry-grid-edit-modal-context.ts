@@ -1,5 +1,5 @@
-import { Item } from '../../Item'
+import { Item } from '../../Item';
 
 export class SkyDataEntryGridEditModalContext {
-    public gridData: Item[];
-  }
+  public gridData: Item[];
+}

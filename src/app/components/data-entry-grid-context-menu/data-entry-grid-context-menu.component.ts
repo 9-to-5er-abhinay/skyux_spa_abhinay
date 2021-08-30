@@ -1,15 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component
-} from '@angular/core';
-
-import {
-  ICellRendererAngularComp
-} from 'ag-grid-angular';
-
-import {
-  ICellRendererParams
-} from 'ag-grid-community';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ICellRendererAngularComp } from 'ag-grid-angular';
+import { ICellRendererParams } from 'ag-grid-community';
 
 @Component({
   selector: 'data-entry-grid-context-menu',

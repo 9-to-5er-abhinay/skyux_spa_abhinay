@@ -1,83 +1,31 @@
-import {
-  CommonModule
-} from '@angular/common';
-
-import {
-  SkyIdModule
-} from '@skyux/core';
-
-import {
-  NgModule
-} from '@angular/core';
-
-import { HttpClientModule } from '@angular/common/http'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-
-import {
-  SkyAvatarModule
-} from '@skyux/avatar';
-
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SkyAgGridModule } from '@skyux/ag-grid';
+import { SkyAvatarModule } from '@skyux/avatar';
+import { SkyIdModule } from '@skyux/core';
+import { SkyDatepickerModule } from '@skyux/datetime';
+import { SkyCharacterCounterModule, SkyInputBoxModule } from '@skyux/forms';
+import { SkyGridModule } from '@skyux/grids';
 import {
   SkyAlertModule,
-  SkyKeyInfoModule
+  SkyKeyInfoModule,
+  SkyStatusIndicatorModule
 } from '@skyux/indicators';
-
 import {
   SkyFluidGridModule,
-  SkyTextExpandModule
-} from '@skyux/layout';
-
-import {
-  SkyNavbarModule
-} from '@skyux/navbar';
-
-import {
-  SkyInputBoxModule,
-  SkyCharacterCounterModule
-} from '@skyux/forms';
-
-import {
-  SkyEmailValidationModule
-} from '@skyux/validation';
-
-import {
-  SkyDatepickerModule
-} from '@skyux/datetime';
-import {
-  SkyGridModule
-} from '@skyux/grids';
-import {
-  SkyAgGridModule
-} from '@skyux/ag-grid';
-
-import {
-SkyPhoneFieldModule
-} from '@skyux/phone-field';
-
-import {
-  SkyStatusIndicatorModule
-  } from '@skyux/indicators';
-import {
-    SkyDropdownModule
-} from '@skyux/popovers';
-import {
-  SkyDataEntryGridContextMenuComponent
-} from './components/data-entry-grid-context-menu/data-entry-grid-context-menu.component';
-import {
-  SkyDataEntryGridEditModalComponent
-} from './components/data-entry-grid-edit-modal/data-entry-grid-edit-modal.component';
-
-import {
-  SkyModalModule
-} from '@skyux/modals';
-import {
+  SkyTextExpandModule,
   SkyToolbarModule
 } from '@skyux/layout';
-import {
-  SkySearchModule
-} from '@skyux/lookup';
-
-
+import { SkySearchModule } from '@skyux/lookup';
+import { SkyModalModule } from '@skyux/modals';
+import { SkyNavbarModule } from '@skyux/navbar';
+import { SkyPhoneFieldModule } from '@skyux/phone-field';
+import { SkyDropdownModule } from '@skyux/popovers';
+import { SkyEmailValidationModule } from '@skyux/validation';
+import { SkyDataEntryGridContextMenuComponent } from './components/data-entry-grid-context-menu/data-entry-grid-context-menu.component';
+import { SkyDataEntryGridEditModalComponent } from './components/data-entry-grid-edit-modal/data-entry-grid-edit-modal.component';
 
 @NgModule({
   exports: [
@@ -97,7 +45,7 @@ import {
     SkyIdModule,
     ReactiveFormsModule,
     SkyGridModule,
-    SkyAgGridModule ,
+    SkyAgGridModule,
     SkyPhoneFieldModule,
     SkyStatusIndicatorModule,
     SkyDropdownModule,
@@ -110,4 +58,4 @@ import {
     SkyDataEntryGridEditModalComponent
   ]
 })
-export class AppSkyModule { }
+export class AppSkyModule {}

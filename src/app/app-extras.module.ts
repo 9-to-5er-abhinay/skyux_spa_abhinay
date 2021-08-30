@@ -1,19 +1,9 @@
 import { NgModule } from '@angular/core';
-
-import {
-  AppSkyModule
-} from './app-sky.module';
-import {
-  AgGridModule
-} from 'ag-grid-angular';
+import { AgGridModule } from 'ag-grid-angular';
+import { AppSkyModule } from './app-sky.module';
 
 @NgModule({
-  imports: [
-    AgGridModule.withComponents([])
-  ],
-  exports: [
-    AppSkyModule,
-    AgGridModule 
-  ]
+  imports: [AgGridModule.withComponents([])],
+  exports: [AppSkyModule, AgGridModule]
 })
-export class AppExtrasModule { }
+export class AppExtrasModule {}

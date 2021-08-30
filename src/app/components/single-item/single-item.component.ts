@@ -1,30 +1,11 @@
-import {
-  Component, Input, OnInit
-} from '@angular/core';
-import {
-  GridApi,
-  GridReadyEvent,
-  GridOptions
-} from 'ag-grid-community';
-import {
-  SkyCellType,
-  SkyAgGridService
-} from '@skyux/ag-grid';
-import {
-  SkyModalService,
-  SkyModalCloseArgs
-} from '@skyux/modals';
-
-import {Item} from '../../Item'
-import {
-  SkyDataEntryGridEditModalContext
-} from '../data-entry-grid-edit-modal/data-entry-grid-edit-modal-context';
-import {
-  SkyDataEntryGridEditModalComponent
-} from '../data-entry-grid-edit-modal/data-entry-grid-edit-modal.component';
-import {
-  SkyDataEntryGridContextMenuComponent
-} from '../data-entry-grid-context-menu/data-entry-grid-context-menu.component';
+import { Component, Input, OnInit } from '@angular/core';
+import { SkyAgGridService, SkyCellType } from '@skyux/ag-grid';
+import { SkyModalCloseArgs, SkyModalService } from '@skyux/modals';
+import { GridApi, GridOptions, GridReadyEvent } from 'ag-grid-community';
+import { Item } from '../../Item';
+import { SkyDataEntryGridContextMenuComponent } from '../data-entry-grid-context-menu/data-entry-grid-context-menu.component';
+import { SkyDataEntryGridEditModalContext } from '../data-entry-grid-edit-modal/data-entry-grid-edit-modal-context';
+import { SkyDataEntryGridEditModalComponent } from '../data-entry-grid-edit-modal/data-entry-grid-edit-modal.component';
 
 @Component({
   selector: 'app-single-item',
@@ -32,7 +13,7 @@ import {
   styleUrls: ['./single-item.component.scss']
 })
 export class SingleItemComponent implements OnInit {
-  @Input() public gridData:Item[];
+  @Input() public gridData: Item[];
 
   public columnDefs = [
     {
@@ -72,8 +53,8 @@ export class SingleItemComponent implements OnInit {
       field: 'date',
       headerName: 'DOB',
       maxWidth: 110,
-      type: SkyCellType.Date,
-      //valueFormatter: this.endDateFormatter
+      type: SkyCellType.Date
+      // valueFormatter: this.endDateFormatter
     },
     {
       field: 'address',
@@ -88,13 +69,15 @@ export class SingleItemComponent implements OnInit {
   constructor(
     private agGridService: SkyAgGridService,
     private modalService: SkyModalService
-  ) { }
+  ) {}
   public ngOnInit(): void {
     this.gridOptions = {
       columnDefs: this.columnDefs,
-      onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent)
+      onGridReady: (gridReadyEvent) => this.onGridReady(gridReadyEvent)
     };
-    this.gridOptions = this.agGridService.getGridOptions({ gridOptions: this.gridOptions });
+    this.gridOptions = this.agGridService.getGridOptions({
+      gridOptions: this.gridOptions
+    });
   }
   public onGridReady(gridReadyEvent: GridReadyEvent): void {
     this.gridApi = gridReadyEvent.api;
@@ -107,12 +90,17 @@ export class SingleItemComponent implements OnInit {
     context.gridData = this.gridData;
 
     const options = {
-      providers: [{ provide: SkyDataEntryGridEditModalContext, useValue: context }],
+      providers: [
+        { provide: SkyDataEntryGridEditModalContext, useValue: context }
+      ],
       ariaDescribedBy: 'docs-edit-grid-modal-content',
       size: 'large'
     };
 
-    const modalInstance = this.modalService.open(SkyDataEntryGridEditModalComponent, options);
+    const modalInstance = this.modalService.open(
+      SkyDataEntryGridEditModalComponent,
+      options
+    );
 
     modalInstance.closed.subscribe((result: SkyModalCloseArgs) => {
       if (result.reason === 'cancel' || result.reason === 'close') {

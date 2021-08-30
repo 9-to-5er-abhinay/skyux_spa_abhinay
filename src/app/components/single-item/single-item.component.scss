@@ -3,16 +3,17 @@
 //@import "/node_modules/ag-grid-community/dist/styles/ag-theme-alpine.css";
 
 .task {
-    background: rgba(223, 218, 218, 0.425);
-    margin: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: rgb(230, 245, 253)
-  }
+  background: rgba(223, 218, 218, 0.425);
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: rgb(230, 245, 253);
+}
 
-  .single-line h4, .single-line p {
-    display: inline
-  }
-  .single-line h4 {
-    font-weight: bold;
+.single-line h4,
+.single-line p {
+  display: inline;
+}
+.single-line h4 {
+  font-weight: bold;
 }

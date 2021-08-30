@@ -1,19 +1,10 @@
-import { Item } from '../../Item'
-import {
-  Component,
-  OnInit
-} from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
 import {
   SkyAgGridService,
   SkyCellType,
   SkyDatepickerProperties
 } from '@skyux/ag-grid';
-
-import {
-  SkyModalInstance
-} from '@skyux/modals';
-
+import { SkyModalInstance } from '@skyux/modals';
 import {
   ColDef,
   GridApi,
@@ -21,10 +12,8 @@ import {
   GridReadyEvent,
   ICellEditorParams
 } from 'ag-grid-community';
-
-import {
-  SkyDataEntryGridEditModalContext
-} from './data-entry-grid-edit-modal-context';
+import { Item } from '../../Item';
+import { SkyDataEntryGridEditModalContext } from './data-entry-grid-edit-modal-context';
 
 @Component({
   selector: 'sky-demo-edit-modal-form',
@@ -40,7 +29,7 @@ export class SkyDataEntryGridEditModalComponent implements OnInit {
     private agGridService: SkyAgGridService,
     public context: SkyDataEntryGridEditModalContext,
     public instance: SkyModalInstance
-  ) { }
+  ) {}
 
   public ngOnInit(): void {
     this.gridData = this.context.gridData;
@@ -71,7 +60,9 @@ export class SkyDataEntryGridEditModalComponent implements OnInit {
         headerName: 'DOB',
         type: SkyCellType.Date,
         editable: true,
-        cellEditorParams: (params: ICellEditorParams): { skyComponentProperties: SkyDatepickerProperties } => {
+        cellEditorParams: (
+          params: ICellEditorParams
+        ): { skyComponentProperties: SkyDatepickerProperties } => {
           return { skyComponentProperties: { minDate: params.data.startDate } };
         }
       },
@@ -123,9 +114,11 @@ export class SkyDataEntryGridEditModalComponent implements OnInit {
 
     this.gridOptions = {
       columnDefs: this.columnDefs,
-      onGridReady: gridReadyEvent => this.onGridReady(gridReadyEvent)
+      onGridReady: (gridReadyEvent) => this.onGridReady(gridReadyEvent)
     };
-    this.gridOptions = this.agGridService.getEditableGridOptions({ gridOptions: this.gridOptions });
+    this.gridOptions = this.agGridService.getEditableGridOptions({
+      gridOptions: this.gridOptions
+    });
   }
 
   public onGridReady(gridReadyEvent: GridReadyEvent): void {

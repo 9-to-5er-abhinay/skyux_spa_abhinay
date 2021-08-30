@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import {Item} from '../../Item';
-import {ItemService} from '../../services/item.service';
+import { Item } from '../../Item';
+import { ItemService } from '../../services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -9,15 +8,14 @@ import {ItemService} from '../../services/item.service';
   styleUrls: ['./items.component.scss']
 })
 export class ItemsComponent implements OnInit {
-  
   public items: Item[] = [];
   constructor(private itemService: ItemService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.itemService.getItems().subscribe((items) => (this.items = items));
   }
 
-  addItem(item: Item) {
-    this.itemService.addItem(item).subscribe((item) => (this.items.push(item)));
+  public addItem(item: Item) {
+    this.itemService.addItem(item).subscribe((i) => this.items.push(i));
   }
 }

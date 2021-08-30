@@ -1,0 +1,82 @@
+<form class="add-form" (ngSubmit)="onSubmit()" >
+    <p>The fields with (*) mark are mandatory</p>
+  
+    <div class="sky-form-group" style="max-width:100%" >
+        <sky-input-box>
+            <label for="firstName" class="sky-control-label sky-control-label-required" style="font-size:16px">
+                First Name
+            </label>
+            <input type="text" class="sky-form-control" name="firstName" [(ngModel)]="firstName" id="firstName" placeholder="Add First Name">
+        </sky-input-box>
+    </div>
+    <div class="sky-form-group" style="max-width:100%">
+        <sky-input-box>
+            <label for="lastName" class="sky-control-label" style="font-size:16px">
+                Last Name
+            </label>
+            <input type="text" class="sky-form-control" name="lastName" [(ngModel)]="lastName" id="lastName" placeholder="Add Last Name">
+        </sky-input-box>
+    </div>
+    <div class="sky-form-group" style="max-width:100%">
+        <sky-input-box>
+            <label for="contact" class="sky-control-label sky-control-label-required" style="font-size:16px">
+                Contact Number
+            </label>
+            <sky-phone-field [defaultCountry]="'us'">
+                <input skyPhoneFieldInput class="sky-form-control" name="contact" [(ngModel)]="contact" #phoneControl="ngModel" id="contact" placeholder="Add 10-digit Contact Number">
+            </sky-phone-field>
+        </sky-input-box>
+        
+    </div>
+    <sky-status-indicator *ngIf="!phoneControl.valid" descriptionType="none" indicatorType="danger">
+        Enter a phone number matching the format for the selected country.
+    </sky-status-indicator>
+   
+    <div class="sky-form-group" style="max-width:100%">
+        <sky-input-box>
+            <label for="date" class="sky-control-label" style="font-size:16px">
+                DOB
+            </label>
+            <sky-datepicker>
+                <input type="text" class="sky-form-control" skyDatepickerInput  dateFormat="DD/MM/YYYY" name="date" [(ngModel)]="date" id="date" placeholder="Choose Date">
+            </sky-datepicker>
+        </sky-input-box>
+    </div>
+
+    <div class="sky-form-group" style="max-width:100%">
+        <sky-input-box>
+            <label for="email" class="sky-control-label sky-control-label-required" style="font-size:16px">
+                E-mail
+            </label>
+            <input type="text" class="sky-form-control" name="email" skyEmailValidation skyId 
+                [(ngModel)]="email" #emailInput="skyId" #emailControl="ngModel" id="email" placeholder="Add Email">
+        </sky-input-box>
+    </div>
+    <div class="sky-form-group sky-error-label" style="max-width:100%" 
+        *ngIf="emailControl.errors?.skyEmail && emailControl.dirty && emailControl.touched" >
+        Enter a valid email in the "joe@abc.com" format.
+    </div>
+
+    <div class="sky-form-group" style="max-width:100%">
+        <sky-input-box>
+            <label for="address" class="sky-control-label sky-control-label-required" style="font-size:16px">
+                Address
+            </label>
+            <sky-character-counter-indicator #addressIndicator></sky-character-counter-indicator>
+            <input type="text" class="sky-form-control" name="address" skyCharacterCounter skyId [(ngModel)]="address" #description="ngModel"  
+                [skyCharacterCounterLimit]="maxAddressCharacterCount" 
+                [skyCharacterCounterIndicator]="addressIndicator" id="address" 
+                placeholder="Add Address">
+        </sky-input-box>
+        
+    </div>
+    <div *ngIf="description.errors?.skyCharacterCounter" class="sky-form-group sky-error-label">
+        Limit address to {{ maxAddressCharacterCount }} characters.
+    </div>
+    
+   
+
+    <button type="submit" [disabled]="(!contact || !email || !address)||(!phoneControl.valid) || (emailControl.errors?.skyEmail && emailControl.dirty && emailControl.touched) || (description.errors?.skyCharacterCounter)" value="Save Entry" class="btn btn-block">
+        Save Entry
+    </button>
+</form>

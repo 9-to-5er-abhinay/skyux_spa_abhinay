@@ -72,44 +72,6 @@ export class SkyDataEntryGridEditModalComponent implements OnInit {
         type: SkyCellType.Text,
         editable: true
       }
-      // {
-      //   field: 'name',
-      //   headerName: 'Name'
-      // },
-      // {
-      //   field: 'age',
-      //   headerName: 'Age',
-      //   type: SkyCellType.Number,
-      //   maxWidth: 100,
-      //   editable: true
-      // },
-      // {
-      //   field: 'startDate',
-      //   headerName: 'Start Date',
-      //   type: SkyCellType.Date,
-      //   sort: 'asc'
-      // },
-      // {
-      //   field: 'endDate',
-      //   headerName: 'End Date',
-      //   type: SkyCellType.Date,
-      //   editable: true,
-      //   cellEditorParams: (params: ICellEditorParams): { skyComponentProperties: SkyDatepickerProperties } => {
-      //     return { skyComponentProperties: { minDate: params.data.startDate } };
-      //   }
-      // },
-      // {
-      //   field: 'department',
-      //   headerName: 'Department',
-      //   type: SkyCellType.Text,
-      //   editable: true,
-      // },
-      // {
-      //   field: 'jobTitle',
-      //   headerName: 'Title',
-      //   type: SkyCellType.Text,
-      //   editable: true,
-      // }
     ];
 
     this.gridOptions = {

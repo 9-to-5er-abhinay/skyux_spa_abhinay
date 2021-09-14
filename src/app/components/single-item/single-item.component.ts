@@ -15,6 +15,9 @@ import { SkyDataEntryGridEditModalComponent } from '../data-entry-grid-edit-moda
 export class SingleItemComponent implements OnInit {
   @Input() public gridData: Item[];
 
+  public gridApi: GridApi;
+  public gridOptions: GridOptions;
+  public searchText: string;
   public columnDefs = [
     {
       field: 'selected',
@@ -62,14 +65,11 @@ export class SingleItemComponent implements OnInit {
       type: SkyCellType.Text
     }
   ];
-
-  public gridApi: GridApi;
-  public gridOptions: GridOptions;
-  public searchText: string;
   constructor(
     private agGridService: SkyAgGridService,
     private modalService: SkyModalService
   ) {}
+
   public ngOnInit(): void {
     this.gridOptions = {
       columnDefs: this.columnDefs,

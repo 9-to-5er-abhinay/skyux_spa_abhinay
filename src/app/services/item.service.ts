@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ItemService {
-  private apiUrl = 'http://localhost:5100/items';
+  public apiUrl = 'http://localhost:5100/items';
 
   constructor(private http: HttpClient) {}
 

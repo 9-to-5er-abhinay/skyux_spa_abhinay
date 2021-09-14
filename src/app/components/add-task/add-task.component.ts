@@ -27,13 +27,14 @@ export class AddTaskComponent implements OnInit {
     if (dateFormatted === 'Invalid Date') {
       dateFormatted = '';
     }
+    this.date = dateFormatted;
 
     const newItem: Item = {
       firstName: this.firstName,
       lastName: this.lastName,
       contact: this.contact,
       email: this.email,
-      date: dateFormatted,
+      date: this.date,
       address: this.address
     };
 

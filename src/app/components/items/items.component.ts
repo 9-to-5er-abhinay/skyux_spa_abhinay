@@ -9,13 +9,12 @@ import { ItemService } from '../../services/item.service';
 })
 export class ItemsComponent implements OnInit {
   public items: Item[] = [];
-  constructor(private itemService: ItemService) {}
+  constructor(private itemService: ItemService) { }
 
   public ngOnInit(): void {
     this.itemService.getItems().subscribe((items) => (this.items = items));
   }
-
   public addItem(item: Item) {
-    this.itemService.addItem(item).subscribe((i) => this.items.push(i));
+    this.itemService.addItem(item).subscribe((dataItem) => this.items.push(dataItem));
   }
 }

@@ -5,7 +5,7 @@
     <sky-input-box>
       <label
         for="firstName"
-        class="sky-control-label sky-control-label-required"
+        class="sky-control-label sky-control-label-required mint"
         style="font-size: 16px"
       >
         First Name
@@ -44,7 +44,7 @@
       >
         Contact Number
       </label>
-      <sky-phone-field [defaultCountry]="'us'">
+      <sky-phone-field [defaultCountry]="'in'">
         <input
           skyPhoneFieldInput
           class="sky-form-control"
@@ -52,7 +52,7 @@
           [(ngModel)]="contact"
           #phoneControl="ngModel"
           id="contact"
-          placeholder="Add 10-digit Contact Number"
+          placeholder="Add Contact Number"
         />
       </sky-phone-field>
     </sky-input-box>

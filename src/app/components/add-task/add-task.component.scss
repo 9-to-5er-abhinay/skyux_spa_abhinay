@@ -1,0 +1,27 @@
+.add-form {
+  margin-bottom: 40px;
+}
+.btn {
+  display: inline-block;
+  background: steelblue;
+  color: #fff;
+  border: none;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: inherit;
+  vertical-align: middle;
+  height: 40px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
